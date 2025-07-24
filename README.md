@@ -42,3 +42,41 @@ It also aligns better with the monthly frequency of our CPI and COE datasets onc
 ## Data Preprocessing
 The datasets were preprocessed to ensure temporal alignment and methodological consistency. First, all records were filtered to begin from January 2019, harmonizing the analysis period with the CPI’s base year adjustments.For the Singapore Overnight Rate Average (SORA), daily values were aggregated into monthly averages to match the COE bidding cycle’s temporal resolution.
 <br>Datasets were then merged using the ‘Month’ field as the primary key, creating a unified time-series framework. To mitigate scale disparities across features (e.g., COE premiums vs. CPI indices), all numeric variables were standardized to a mean of 0 and unit variance using z-score normalization.
+
+## Exploratory Data Analysis (EDA)
+
+Trend Plots: Time series plots show CPI and SORA both generally increasing post-COVID.
+<br>Correlation Matrix showed that COE premiums has a moderate positive correlation with both CPI and SORA.
+
+## Modelling & Analysis
+1) Linear Regression (OLS)
+<br>Formula: COE Premium ~ CPI + SORA
+<br>R^2 Score (Test): ~0.196
+<br>Coefficient Signs: CPI (+), SORA (-)
+
+2) Ridge and Lasso Regression
+<br>Ridge Coefficients: [15672.96, -2913.35]
+<br>Lasso Coefficients: [15710.57, -2946.21]
+<br>R^2 Scores similar to OLS (~0.196)
+
+3) Variance Inflation Factor (VIF)
+<br>CPI VIF: 3.06
+<br>SORA VIF: 3.06
+<br>Conclusion: No severe multicollinearity
+
+4) Residual Analysis
+<br>Residuals are roughly normally distributed, suggesting good model fit assumptions.
+
+## Findings
+
+COE premiums have a moderate correlation with CPI and SORA, especially with CPI.
+Surprisingly, SORA shows a negative coefficient in regression despite a positive correlation.
+This implies that controlling for inflation, higher interest rates might reduce car purchasing demand.
+However, R^2 values (~0.2) indicate limited explanatory power, meaning other factors (e.g. car quotas, policy announcements) may have more influence.
+
+
+
+
+
+
+
