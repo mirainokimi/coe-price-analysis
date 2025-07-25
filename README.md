@@ -33,7 +33,7 @@ Source: SINGAPORE DEPARTMENT OF STATISTICS
 <br>URL: https://data.gov.sg/datasets/d_ba8a05c8908b5e1dc13540286d585f8a/view
 <br>Description: This dataset provides the monthly, seasonally adjusted Consumer Price Index (CPI) for Singapore, using 2019 as the base year. The CPI measures the average price changes over time of a fixed basket of goods and services commonly purchased by resident households. Seasonal adjustment removes recurring fluctuations due to seasonal patterns, offering a clearer view of underlying inflation trends. It includes overall CPI as well as breakdowns by categories such as food, housing, transport, and healthcare.
 ## Justification for Variable Selection
-As a measure of CPI, I chose “All Items” as it reflects the broadest measure of inflation faced by consumers, incorporating both core and volatile components (like food and transport). This makes it more representative of the general cost of living and better aligned with macroeconomic sentiment and household purchasing power — both of which can influence demand for vehicles and COE prices.
+As a measure of CPI, I chose “All Items” as it reflects the broadest measure of inflation faced by consumers, incorporating both core and volatile components (like food and transport). This makes it more representative of the general cost of living and better aligned with macroeconomic sentiment and household purchasing power.
 
 <br>For bank interest rates, although government bond yields and compounded SORA (e.g. 3-month) were available, I used SORA because:
 It serves as a cleaner reflection of short-term interest rate movements set by MAS.
@@ -70,10 +70,7 @@ Trend Plots: Time series plots show CPI and SORA both generally increasing post-
 
 ## Findings
 
-COE premiums have a moderate correlation with CPI and SORA, especially with CPI.
-Surprisingly, SORA shows a negative coefficient in regression despite a positive correlation.
-This implies that controlling for inflation, higher interest rates might reduce car purchasing demand.
-However, R^2 values (~0.2) indicate limited explanatory power, meaning other factors (e.g. car quotas, policy announcements) may have more influence.
+COE premiums show a moderate correlation with both CPI and SORA, with a stronger relationship observed with CPI. Linear regression results indicate that CPI has a positive effect on COE prices. As the overall cost of living rises, COE premiums also tend to increase. This suggests that inflation, which may reflect stronger consumer demand or economic confidence, can drive up car ownership demand. In contrast, SORA has a negative relationship with COE prices. This makes sense, since higher short-term interest rates raise borrowing costs, which can reduce demand for car loans and discourage COE bidding activity. However, the model’s R² score is only around 0.2, meaning CPI and SORA explain just a small portion of the variation in COE prices. This suggests that other factors, such as quota changes, government policy, or market sentiment, likely play a much larger role.
 
 
 
