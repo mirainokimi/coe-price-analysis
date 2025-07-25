@@ -35,13 +35,14 @@ Source: SINGAPORE DEPARTMENT OF STATISTICS
 ## Justification for Variable Selection
 As a measure of CPI, I chose “All Items” as it reflects the broadest measure of inflation faced by consumers, incorporating both core and volatile components (like food and transport). This makes it more representative of the general cost of living and better aligned with macroeconomic sentiment and household purchasing power — both of which can influence demand for vehicles and COE prices.
 
-<br>For bank interest rates, although government bond yields and compounded SORA (e.g. 3-month) were available, we selected daily SORA because:
+<br>For bank interest rates, although government bond yields and compounded SORA (e.g. 3-month) were available, I used SORA because:
 It serves as a cleaner reflection of short-term interest rate movements set by MAS.
+The interest rate recorded for each month represents the value at the very end of that month, not an average over the month. The data being recorded on a monthly basis matches better with the bi-monthly updates of COE prices than the rest.
 It is less smoothed than 3-month compounded alternatives and therefore may capture more immediate shifts in interest rate policy, which could impact vehicle financing costs, consumer borrowing, and bidding behavior.
-It also aligns better with the monthly frequency of our CPI and COE datasets once resampled, maintaining consistency in time granularity.
+It also aligns better with the monthly frequency of the CPI and COE datasets I used, maintaining consistency in time granularity.
 ## Data Preprocessing
 The datasets were preprocessed to ensure temporal alignment and methodological consistency. First, all records were filtered to begin from January 2019, harmonizing the analysis period with the CPI’s base year adjustments.For the Singapore Overnight Rate Average (SORA), daily values were aggregated into monthly averages to match the COE bidding cycle’s temporal resolution.
-<br>Datasets were then merged using the ‘Month’ field as the primary key, creating a unified time-series framework. To mitigate scale disparities across features (e.g., COE premiums vs. CPI indices), all numeric variables were standardized to a mean of 0 and unit variance using z-score normalization.
+<br>I then merged the datasets using the ‘Month’ field as the primary key, creating a unified time-series framework. To mitigate scale disparities, I standardised across features (e.g., COE premiums vs. CPI indices), all numeric variables were standardized to a mean of 0 and unit variance using z-score normalization.
 
 ## Exploratory Data Analysis (EDA)
 
